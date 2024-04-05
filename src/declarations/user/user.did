@@ -1,0 +1,193 @@
+type User__1 = 
+ record {
+   birthDate: text;
+   ci: text;
+   description: text;
+   email: text;
+   experiences: opt vec Experience;
+   experiencesID: opt vec nat;
+   id: opt nat;
+   lastname: text;
+   name: text;
+   pages: opt vec Page;
+   pagesID: opt vec nat;
+   password: text;
+   recommendations: opt vec Recommendation;
+   recommendationsID: opt vec nat;
+   skills: opt vec text;
+   urlBanner: opt text;
+   urlProfile: opt text;
+ };
+type UserLogin = 
+ record {
+   token: text;
+   user: User__1;
+ };
+type User = 
+ record {
+   birthDate: text;
+   ci: text;
+   description: text;
+   email: text;
+   experiences: opt vec Experience;
+   experiencesID: opt vec nat;
+   id: opt nat;
+   lastname: text;
+   name: text;
+   pages: opt vec Page;
+   pagesID: opt vec nat;
+   password: text;
+   recommendations: opt vec Recommendation;
+   recommendationsID: opt vec nat;
+   skills: opt vec text;
+   urlBanner: opt text;
+   urlProfile: opt text;
+ };
+type Result_5 = 
+ variant {
+   err: HttpResponse;
+   ok: vec Recommendation__1;
+ };
+type Result_4 = 
+ variant {
+   err: HttpResponse;
+   ok: UserLogin;
+ };
+type Result_3 = 
+ variant {
+   err: HttpResponse;
+   ok: vec Experience__1;
+ };
+type Result_2 = 
+ variant {
+   err: HttpResponse;
+   ok: Recommendation__1;
+ };
+type Result_1 = 
+ variant {
+   err: HttpResponse;
+   ok: User;
+ };
+type Result = 
+ variant {
+   err: HttpResponse;
+   ok: HttpResponse;
+ };
+type Recommendation__1 = 
+ record {
+   id: opt nat;
+   message: text;
+   profile: opt User__1;
+   profileID: opt nat;
+   sender: opt User__1;
+   senderID: opt nat;
+ };
+type Recommendation = 
+ record {
+   id: opt nat;
+   message: text;
+   profile: opt User__1;
+   profileID: opt nat;
+   sender: opt User__1;
+   senderID: opt nat;
+ };
+type Post = 
+ record {
+   applicant: opt vec User__1;
+   applicantID: opt vec nat;
+   category: opt vec Category;
+   categoryID: opt vec nat;
+   creationDate: text;
+   description: text;
+   id: opt nat;
+   page: opt Page;
+   pageID: opt nat;
+   title: text;
+   urlImage: opt text;
+ };
+type Page__1 = 
+ record {
+   description: text;
+   id: opt nat;
+   name: text;
+   post: opt vec Post;
+   postID: opt vec nat;
+   urlBanner: opt text;
+   urlProfile: opt text;
+   user: opt vec User__1;
+   userID: opt vec nat;
+ };
+type Page = 
+ record {
+   description: text;
+   id: opt nat;
+   name: text;
+   post: opt vec Post;
+   postID: opt vec nat;
+   urlBanner: opt text;
+   urlProfile: opt text;
+   user: opt vec User__1;
+   userID: opt vec nat;
+ };
+type HttpResponse = 
+ record {
+   code: nat;
+   message: text;
+ };
+type Experience__1 = 
+ record {
+   begin: text;
+   companyName: text;
+   description: text;
+   finalDate: text;
+   id: opt nat;
+   page: opt Page;
+   pageID: opt nat;
+   position: text;
+   title: text;
+   user: opt User__1;
+   userID: opt nat;
+ };
+type Experience = 
+ record {
+   begin: text;
+   companyName: text;
+   description: text;
+   finalDate: text;
+   id: opt nat;
+   page: opt Page;
+   pageID: opt nat;
+   position: text;
+   title: text;
+   user: opt User__1;
+   userID: opt nat;
+ };
+type Category = 
+ record {
+   description: opt text;
+   id: opt nat;
+   name: text;
+ };
+service : {
+  addExperiences: (text, vec Experience__1) -> (Result);
+  addRecommendation: (text, Recommendation__1) -> (Result_2);
+  addSkill: (text, vec text) -> (Result_1);
+  axu1: (Page__1) -> (Page__1);
+  deleteExperiences: (text, vec nat) -> (Result);
+  deleteRecommendation: (text, nat) -> (Result) query;
+  deleteUser: (text) -> (Result);
+  getExperiences: (text) -> (Result_3);
+  getRecommedations: (text, nat) -> (Result_5) query;
+  getUser: (text) -> (Result_1);
+  getUsersById: (text, vec nat) -> (vec User) query;
+  login: (text, text) -> (Result_4);
+  logout: (text) -> (Result);
+  printTokens: () -> (text) query;
+  register: (User) -> (UserLogin);
+  updateExperiences: (text, vec Experience__1) -> (Result_3);
+  updateExperiencesByFunc: (text, vec nat,
+   func (Experience__1) -> (Experience__1)) -> (Result);
+  updateRecommendation: (text, Recommendation__1) -> (Result_2) query;
+  updateUser: (text, User) -> (Result_1);
+  updateUserByFunc: (text, vec nat, func (User) -> (User)) -> (Result);
+}

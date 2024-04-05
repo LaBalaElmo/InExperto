@@ -1,0 +1,35 @@
+People hire our products to do the job of:
+Find jobs in Bolivia, when inexperienced 
+Post jobs in Bolivia, seaking people with skills while also giving opportunity to the inexperienced
+whenever they need to find a job or hire someone, the easy way.
+
+Our product will allways be free for the job seeker and the employer, offering different layers for different needs.
+
+Headline > No experience? we got you covered. // ser mas especificos
+Hero Image > TODO
+supporting copy > Build skilled teams or find a job in Bolivia, the easy way. Register now and start hiring or finding a job today.
+
+
+//mostrat primero lo que hacemos 
+
+Form Header > Sign up and try out!
+Supporting copy >  Find the job of your dreams or hire the best talent in Bolivia.
+
+Form fields > Name, Email, Password, Confirm Password, I agree to the terms and conditions, Sign up
+
+Call to action > Find a job or Hire talent! -> Lista de trabajos
+
+Social proof> TODO
+
+Subheading > How it works?
+
+Supporting copy > New talents can sign up, follow our easy guide and start applying to jobs in minutes. Employers can sign up and instantly start posting jobs and hiring talent based on their needs.
+Our algorithm will match the best candidates with the best jobs, based on their skills only.
+
+
+Reinforcement statement > Inexperto will show the world that you are the best at what you do, no matter your experience.
+
+Benefits > 
+
+
+

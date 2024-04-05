@@ -1,0 +1,180 @@
+type User__1 = 
+ record {
+   birthDate: text;
+   ci: text;
+   description: text;
+   email: text;
+   experiences: opt vec Experience;
+   experiencesID: opt vec nat;
+   id: opt nat;
+   lastname: text;
+   name: text;
+   pages: opt vec Page;
+   pagesID: opt vec nat;
+   password: text;
+   recommendations: opt vec Recommendation;
+   recommendationsID: opt vec nat;
+   skills: opt vec text;
+   urlBanner: opt text;
+   urlProfile: opt text;
+ };
+type User = 
+ record {
+   birthDate: text;
+   ci: text;
+   description: text;
+   email: text;
+   experiences: opt vec Experience;
+   experiencesID: opt vec nat;
+   id: opt nat;
+   lastname: text;
+   name: text;
+   pages: opt vec Page;
+   pagesID: opt vec nat;
+   password: text;
+   recommendations: opt vec Recommendation;
+   recommendationsID: opt vec nat;
+   skills: opt vec text;
+   urlBanner: opt text;
+   urlProfile: opt text;
+ };
+type Result_5 = 
+ variant {
+   err: HttpResponse;
+   ok: vec User__1;
+ };
+type Result_4 = 
+ variant {
+   err: HttpResponse;
+   ok: vec Page__1;
+ };
+type Result_3 = 
+ variant {
+   err: HttpResponse;
+   ok: vec Post;
+ };
+type Result_2 = 
+ variant {
+   err: HttpResponse;
+   ok: Page__1;
+ };
+type Result_1 = 
+ variant {
+   err: HttpResponse;
+   ok: HttpResponse;
+ };
+type Result = 
+ variant {
+   err: HttpResponse;
+   ok: Post;
+ };
+type Recommendation = 
+ record {
+   id: opt nat;
+   message: text;
+   profile: opt User;
+   profileID: opt nat;
+   sender: opt User;
+   senderID: opt nat;
+ };
+type Post__1 = 
+ record {
+   applicant: opt vec User;
+   applicantID: opt vec nat;
+   category: opt vec Category;
+   categoryID: opt vec nat;
+   creationDate: text;
+   description: text;
+   id: opt nat;
+   page: opt Page;
+   pageID: opt nat;
+   title: text;
+   urlImage: opt text;
+ };
+type Post = 
+ record {
+   applicant: opt vec User;
+   applicantID: opt vec nat;
+   category: opt vec Category;
+   categoryID: opt vec nat;
+   creationDate: text;
+   description: text;
+   id: opt nat;
+   page: opt Page;
+   pageID: opt nat;
+   title: text;
+   urlImage: opt text;
+ };
+type Page__1 = 
+ record {
+   description: text;
+   id: opt nat;
+   name: text;
+   post: opt vec Post__1;
+   postID: opt vec nat;
+   urlBanner: opt text;
+   urlProfile: opt text;
+   user: opt vec User;
+   userID: opt vec nat;
+ };
+type Page = 
+ record {
+   description: text;
+   id: opt nat;
+   name: text;
+   post: opt vec Post__1;
+   postID: opt vec nat;
+   urlBanner: opt text;
+   urlProfile: opt text;
+   user: opt vec User;
+   userID: opt vec nat;
+ };
+type HttpResponse = 
+ record {
+   code: nat;
+   message: text;
+ };
+type Experience = 
+ record {
+   begin: text;
+   companyName: text;
+   description: text;
+   finalDate: text;
+   id: opt nat;
+   page: opt Page;
+   pageID: opt nat;
+   position: text;
+   title: text;
+   user: opt User;
+   userID: opt nat;
+ };
+type Category = 
+ record {
+   description: opt text;
+   id: opt nat;
+   name: text;
+ };
+service : {
+  aux1: (User__1) -> (User__1);
+  aux2: (User__1) -> (User__1);
+  createPage: (text, Page__1, vec nat) -> (Result_2);
+  createPost: (text, Post, nat) -> (Result);
+  deletePage: (text, nat) -> (Result_1);
+  deletePost: (text, nat, nat) -> (Result_1);
+  getAllPages: (text) -> (Result_4) query;
+  getAllPosts: (text) -> (Result_3) query;
+  getApplicantsFromPost: (text, nat) -> (Result_5);
+  getPagesById: (text, vec nat) -> (Result_4) query;
+  getPagesByUser: (text) -> (Result_4);
+  getPostFromPage: (text, nat) -> (Result_3) query;
+  getPostsForUser: (text) -> (Result_3);
+  login: (text, nat, int, text) -> () oneway;
+  logout: (text, text) -> () oneway;
+  postulate: (text, nat) -> (Result_1);
+  printTokens: () -> (text) query;
+  register: (text, nat, int, text) -> () oneway;
+  updatePage: (text, Page__1) -> (Result_2);
+  updatePageByFunc: (text, vec nat, func (Page__1) -> (Page__1)) ->
+   (Result_1);
+  updatePost: (text, Post) -> (Result);
+}

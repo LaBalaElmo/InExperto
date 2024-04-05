@@ -1,0 +1,28 @@
+{
+    "defaults":{
+        "build": {
+            "packtool": "mops sources"
+        }
+    },
+    "canisters": {
+      "user": {
+        "type": "motoko",
+        "main": "backend/user.mo"
+      },
+      "page":{
+        "type": "motoko",
+        "main": "backend/page.mo"
+      },
+      "frontend": {
+        "dependencies": ["page", "user"],
+        "frontend": {
+          "entrypoint": "dist/index.html"
+        },
+        "source": ["dist"],
+        "type": "assets"
+      }
+    },
+    "dfx": "0.14.1",
+    "version": 1
+  }
+  

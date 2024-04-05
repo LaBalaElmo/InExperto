@@ -1,0 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --color-primary: #1b3764;
+        --secondary-primary: #ffca42;
+        --background-primary: #f6f8fc;
+    }
+}
+
+.underline-text {
+    display: grid;
+    place-items: center;
+}
+
+.underline-text::after {
+    content: "";
+    display: block;
+    margin-top: 0.5rem;
+    width: 45%; /* Adjust the width (50%) as needed */
+    height: 1.75px; /* Adjust the thickness (2px) as needed */
+    /* Adjust the color as needed */
+}
+
+.overline-text::before {
+    content: "";
+    display: block;
+    margin-bottom: 0.5rem;
+    width: 100%;
+    height: 1px;
+}
+
+.bg-black-transparent {
+    background-color: rgba(0, 0, 0, 0.75);
+}
